@@ -31,7 +31,7 @@ module.exports = function(app) {
         if (req.session.user) {
             res.redirect(config.URL.MAIN);
         } else {
-            res.render(config.TEMPL_LOGIN, {
+            res.render(config.TEMPL_REGISTER, {
                 tab: 'signup'
             });
         }

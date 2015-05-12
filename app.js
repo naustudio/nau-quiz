@@ -1,8 +1,8 @@
 /**
- * TheQuiz
- * Author: GP.
- * Version: 1.8.6
- * Release Date: 21-May-2014
+ * Nau Quiz
+ * Author: GP., Thanh Tran
+ * Version: 1.0
+ * Release Date: [TBD]
  */
 
 /**
@@ -10,15 +10,12 @@
  */
 
 var express = require('express'),
-    http = require('http'),
     bodyparser = require('body-parser'),
-    methodoverride = require('method-override'),
     cookieparser = require('cookie-parser'),
     session = require('express-session'),
     morgan = require('morgan'),
     path = require('path'),
     swig = require('swig'),
-    mongoose = require('mongoose'),
     mongostore = require('connect-mongo')(session),
     config = require('./config/config');
 
@@ -58,7 +55,7 @@ app.engine('.html', swig.renderFile);
 
 require('./routes/middleware')(app);
 require('./routes/basic')(app);
-if (!config.AUTH_USE_LDAP) require('./routes/user')(app);
+if (!config.AUTH_USE_LDAP) { require('./routes/user')(app); }
 require('./routes/quiz')(app);
 require('./routes/admin')(app);
 require('./routes/errors')(app);

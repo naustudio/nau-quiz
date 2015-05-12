@@ -82,8 +82,10 @@ function findNextQuestion(index, fn) {
  */
 
 function timeCheck(time_window) {
+    time_window = String(time_window).toLowerCase();
+
     return timeCheck[time_window] || (timeCheck[time_window] = function(req, res, next) {
-        var now = new Date();
+        var now = Date.now();
         var start_time = new Date();
         var result = false;
         start_time.setHours(config.QUIZ_START_TIME[0]);
@@ -93,10 +95,14 @@ function timeCheck(time_window) {
         stop_time.setHours(config.QUIZ_STOP_TIME[0]);
         stop_time.setMinutes(config.QUIZ_STOP_TIME[1]);
         stop_time.setSeconds(0);
-        if (time_window == 'inside') {
-            result = (start_time.getTime() < now.getTime()) && (now.getTime() < stop_time.getTime());
+
+        var is_inside = (now >= start_time.getTime()) && (now <= stop_time.getTime());
+
+        if (time_window === 'inside') {
+            result = is_inside;
         } else {
-            result = start_time.getTime() > now.getTime();
+            // 'outside'
+            result = !is_inside;
         }
         (result) ? next() : res.redirect(config.URL.TIMECLOSED);
     });

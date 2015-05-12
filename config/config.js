@@ -67,6 +67,7 @@ config.URL = {
 
 //Template configuration.
 config.TEMPL_LOGIN = 'login.html';
+config.TEMPL_REGISTER = 'register.html';
 config.TEMPL_RESET = 'reset.html';
 config.TEMPL_500 = '500.html';
 config.TEMPL_403 = '403.html';
@@ -86,8 +87,8 @@ config.TEMPL_QUIZ_ADMIN_ARCHIVE = 'archive.html';
 config.TEMPL_QUIZ_STANDINGS = 'standings.html';
 
 //Quiz configuration.
-config.QUIZ_START_TIME = [14, 0];
-config.QUIZ_STOP_TIME = [16, 0];
+config.QUIZ_START_TIME = [9, 0];
+config.QUIZ_STOP_TIME = [12, 0];
 
 //Database configuration.
 config.DB_HOST = '127.0.0.1';
@@ -102,7 +103,8 @@ config.DB_AUTH_PASSWORD_RESET = 'quiz_resets';
 config.DB_QUESTIONS_TABLE = 'quiz_questions';
 config.DB_QUIZ_HISTORY = 'quiz_history';
 config.DB_USER_FEEDBACK = 'quiz_feedback';
-config.DB_MONGO_CONNECT_STRING = 'mongodb://' + config.DB_USERNAME + ':' + config.DB_PASSWORD + '@' + config.DB_HOST + ':' + config.DB_PORT + '/' + config.DB_NAME;
+// config.DB_MONGO_CONNECT_STRING = 'mongodb://' + config.DB_USERNAME + ':' + config.DB_PASSWORD + '@' + config.DB_HOST + ':' + config.DB_PORT + '/' + config.DB_NAME;
+config.DB_MONGO_CONNECT_STRING = 'mongodb://' + config.DB_HOST + ':' + config.DB_PORT + '/' + config.DB_NAME;
 
 //Mail configuration.
 config.MAIL_SERVER_NOAUTH = false; //Set to true if you're using plain localhost mail.
@@ -140,8 +142,8 @@ config.MASTER_SALT = 'cycle_la_illayam_kaathu_ernakulathula_illayam_vaathu';
 config.RESET_PASSWORD_SALT = 'loln00b';
 
 //Miscellaneous configuration.
-config.COMPANY_SHORT_NAME = 'CIA';
-config.COMPANY_LONG_NAME = 'Central Investigation Agency';
+config.COMPANY_SHORT_NAME = 'NAU';
+config.COMPANY_LONG_NAME = 'Nau Studio';
 config.RESET_VALIDITY = 3; //Hours
 config.SECURITY_QUESTIONS = [
     'What is your mother\'s maiden name?',
